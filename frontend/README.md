@@ -1,12 +1,108 @@
-# React + Vite
+Mini CRM Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Customer Relationship Management (CRM) application built with React.js (frontend) and Node.js + Express + MongoDB (backend).
+It helps businesses manage contacts, deals, notes, and analytics with a clean, simple, and efficient UI.
 
-Currently, two official plugins are available:
+# Mini CRM Backend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the backend service for the **Mini CRM** application.  
+It is built with **Node.js**, **Express**, and **MongoDB (Mongoose)**, and provides APIs for authentication, contact management, and file handling.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- User authentication (Signup / Login) with JWT
+- Contact management with search & pagination
+- Secure password hashing with bcryptjs
+- Logging with morgan
+- Environment variable configuration with dotenv
+- Ready for development with nodemon
+
+---
+
+## 📂 Project Structure
+
+mini-crm/
+│
+├── backend/
+│   ├── models/           # Mongoose models (User, Contact, Deal, Note)
+│   ├── controllers/      # Business logic
+│   ├── routes/           # Express routes
+│   ├── middleware/       # Auth middleware
+│   ├── server.js         # App entry point
+│   └── .env              # MongoDB URI, JWT secret, origin
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/   # Reusable UI components (Card, Button, Table, etc.)
+│   │   ├── pages/        # Main pages (Contacts, Deals, Analytics, Auth, Notes)
+│   │   ├── services/     # API service functions
+│   │   ├── store/        # State management (authStore)
+│   │   ├── App.jsx       # Routes
+│   │   └── main.jsx      # Entry
+│   └── public/           # Static assets
+│
+└── README.md
+
+⚙️ Setup Instructions
+1️⃣ Backend Setup
+cd backend
+npm install
+
+
+Create .env file:
+
+PORT=4000
+MONGO_URI=mongodb://localhost:27017/mini-crm
+JWT_SECRET=supersecretkey
+ORIGIN=http://localhost:5173
+
+
+Run backend:
+
+npm run dev
+
+
+👉 Server will run on http://localhost:4000
+
+2️⃣ Frontend Setup
+cd frontend
+npm install
+
+
+Run frontend:
+
+npm run dev
+
+
+👉 Frontend will run on http://localhost:5173
+
+🔌 API Integration
+
+All frontend API calls use services/* wrappers with Axios.
+
+Token stored in Zustand store (authStore) and sent via headers for protected routes.
+
+Pagination params (page, pageSize) included in requests.
+
+Analytics processed in backend (/api/analytics) and visualized with Recharts in frontend.
+
+
+=🎯 Summary
+
+This Mini CRM project demonstrates a complete full-stack application with:
+
+Backend APIs (contacts, deals, notes, analytics, auth)
+
+Frontend UI with React + Recharts
+
+Data visualization for business insights
+
+CSV Import/Export for bulk data handling
+
+Clean modular code structure for scalability
+
+⚡ It’s lightweight, extendable, and designed as a real-world CRM starter kit.
+
+✨ Built with ❤️ using MERN stack for seamless CRM workflows.***
